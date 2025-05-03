@@ -1,0 +1,9 @@
+flask
+random
+json
+torch
+torch.nn
+nltk
+re
+unicodedata
+numpy
