@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- vincula la hoja de estilos CSS generada con url_for -->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<head>
+    <meta charset="UTF-8"><!-- codificación de caracteres -->
+    <title>Chatbot</title><!-- título de la pestaña -->
+</head>
+<body>
+<div class="container"><!-- contenedor principal de la página -->
+
+    <!-- caja de chat completa -->
+    <div class="chatbox">
+      
+        <!-- panel de soporte (inicialmente oculto) -->
+        <div class="chatbox__support">
+          
+            <!-- encabezado del chat con imagen y texto de bienvenida -->
+            <div class="chatbox__header">
+              
+                <!-- contenedor de la imagen del avatar -->
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="avatar">
+                </div>
+              
+                <!-- texto de encabezado: título y descripción -->
+                <div class="chatbox__content--header">
+                    <h4 class="chatbox__heading--header">Chat support</h4>
+                    <p class="chatbox__description--header">
+                        Hi. My name is Sam. How can I help you?
+                    </p>
+                </div>
+            </div>
+
+            <!-- área donde aparecen los mensajes -->
+            <div class="chatbox__messages">
+                <!-- los mensajes se insertan aquí dinámicamente -->
+                <div></div>
+            </div>
+
+            <!-- pie de chat: campo de texto y botón enviar -->
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message..."><!-- campo de entrada -->
+                <button class="chatbox__send--footer send__button">Send</button><!-- botón de envío -->
+            </div>
+        </div>
+
+        <!-- botón flotante para abrir/cerrar el chat -->
+        <div class="chatbox__button">
+            <button>
+                <img src="{{ url_for('static', filename='images/chatbox-icon-2.png') }}" alt="icono chat"/>
+            </button>
+        </div>
+    </div>
+</div>
+
+<!-- DEFINE la variable $SCRIPT_ROOT para que JS conozca la ruta base de la app Flask -->
+<script>
+    $SCRIPT_ROOT = {{ request.script_root|tojson }};
+</script>
+<!-- si el editor marca error, se puede envolver en raw para VSCode -->
+<!--
+{% raw %}
+    $SCRIPT_ROOT = {{ request.script_root|tojson }};
+{% endraw %}
+-->
+
+<!-- carga el script de la lógica del chat -->
+<script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
+
+</body>
+</html>
