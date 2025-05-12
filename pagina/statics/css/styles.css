@@ -1,0 +1,161 @@
+:root {
+    --fuente:  "Poppins", sans-serif;
+
+    --amarillo: #F2B138;
+    --marron: #8C756C;
+    --rojo: #F24130;
+    --blanco: #F2F2F2;
+    --negro: #0D0D0D;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /* 1rem = 10px */
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: var(--fuente);
+    font-size: 1.5rem;
+    line-height: 2;
+    margin: 0;
+    padding: 0;
+}
+
+/** Globales **/
+.contenedor {
+    display: grid;
+    max-width: 120rem;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+    align-items: center;
+} *
+a {
+    text-decoration: none;
+    font-family:  "Poppins", sans-serif;;
+} */
+
+/* Header */
+.header {
+    background-color: var(--amarillo);
+    padding: 18px;
+    text-align: center;
+}
+.navbar a{
+    padding: 2rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+.contenedor__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+.navbar a {
+    color: var(--blanco);
+    padding: 1rem;
+    display: block;
+    width: 100%;
+    text-align: center;
+    
+}
+
+@media (min-width: 768px) {
+    .contenedor__header {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navbar {
+        flex-direction: row;
+        justify-content: center;
+    }
+
+    .navbar a {
+        width: auto;
+        background: none;
+        
+    }
+}
+
+.logo, .buscador{
+    display: flex;
+}
+.logo a{
+    color: var(--blanco);
+    margin: 1rem;
+    font-weight: 500;
+}
+.login {
+    display: flex;
+    padding: 1rem;
+}
+.login button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.1rem;
+    border: none;
+    padding: 1rem 3rem; /* Ajuste del padding */
+    border-radius: 2.3rem;
+    text-align: center;
+}
+
+
+.buscador {
+    position: relative;
+}
+.buscador input {
+    padding: 1rem;
+    padding-right: 5rem;
+    border-radius: 5px 0 0 5px;
+    border: 0;
+    outline: none;
+    font-size: 1rem;
+}
+.buscador button {
+    background-color: var(--rojo);
+    padding: 1rem 1.5rem;
+    position: absolute;
+    border: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    border-radius: 0 0.5rem 0 0,5rem;
+    color: var(--blanco);
+    cursor: pointer ;
+}
+
+.buscador button:hover {
+    background-color: rgb(191, 29, 29);
+}
+.login {
+    display: flex;
+    gap: 0.5rem;
+}
+.login__registrarte {
+	background-color: var(--rojo);
+	color: var(--blanco);
+}
+.login__registrarte:hover {
+	cursor: pointer;
+    background-color: rgb(191, 29, 29);
+}
+.login__acceder:hover {
+    cursor: pointer;
+} 
+
+/* Slider Noticias*/
+
