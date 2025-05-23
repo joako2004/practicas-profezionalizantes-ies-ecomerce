@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/pagina/statics/css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
@@ -18,11 +18,11 @@
         <div class="contenedor contenedor__header">
 
             <div class="logo">
-               <a href="index.html"><img class="logo__imagen" src="../statics/imagenes/logo.png" alt=""></a> 
+               <a href="{{ url_for('main.index') }}"><img class="logo__imagen" src="{{ url_for('static', filename='imagenes/logo.png') }}" alt=""></a> 
             </div> 
            
             <nav class="navbar">
-                <a href="Noticias.html">Noticias</a>
+                <a href="{{ url_for('main.noticias') }}">Noticias</a>
                 <a href="ayuda.html">Ayuda</a>
                 <a href="comics.html">Comics</a>
                 <a href="ofertas.html">Ofertas</a>
@@ -56,62 +56,62 @@
         <div class="noticias">
 
             <div class="noticias_div">
-                <img src="../statics/imagenes/knull noticias.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/knull noticias.webp') }}" alt="">
                 <h2>Superior Avengers: El equipo de los Vengadores que nadie esperaba… ¿o sí?</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/Quien-es-Musa- noticias.jpg" alt="">
+                <img src="{{ url_for('static', filename='imagenes/Quien-es-Musa- noticias.jpg') }}" alt="">
                 <h2>¿Quién es Musa? El villano más enfermo de Daredevil</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/Quien-es-Luna-Snow noticias.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/Quien-es-Luna-Snow noticias.webp') }}" alt="">
                 <h2>¿Quién es Luna Snow?</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/Que-pasa-cuando-los-superheroes-rompen-la-ley noticias.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/Que-pasa-cuando-los-superheroes-rompen-la-ley noticias.webp') }}" alt="">
                 <h2>¿Qué pasa cuando los superhéroes rompen la ley?</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/Quien-es-el-Detective-Cole-North noticias.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/Quien-es-el-Detective-Cole-North noticias.webp') }}" alt="">
                 <h2>¿Quién es el Detective Cole North?</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/SalonDelComicValencia2025 noticias.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/SalonDelComicValencia2025 noticias.webp') }}" alt="">
                 <h2>Salón del Cómic València 2025</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/Mutaito-El-maestro-olvidado-que-marco-la-historia-de-Dragon-Ball noticias.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/Mutaito-El-maestro-olvidado-que-marco-la-historia-de-Dragon-Ball noticias.webp') }}" alt="">
                 <h2>Mutaito: El maestro olvidado que marcó la historia de Dragon Ball</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/Howard-el-Pato noticias+.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/Howard-el-Pato noticias+.webp') }}" alt="">
                 <h2>Howard el Pato: La historia del héroe más raro (y genial) de Marvel</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/Todas-las-veces-que-Spider-Man-colgo-el-traje noticias.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/Todas-las-veces-que-Spider-Man-colgo-el-traje noticias.webp') }}" alt="">
                 <h2>Todas las veces que Spider-Man colgó el traje (y lo que pasó después)</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/La-sorprendente-relacion-entre-Tormenta-y-Dr noticias.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/La-sorprendente-relacion-entre-Tormenta-y-Dr noticias.webp') }}" alt="">
                 <h2>Tormenta y Dr. Doom: La relación secreta que impactó a Marvel</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/Superior-Avengers noticias.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/Superior-Avengers noticias.webp') }}" alt="">
                 <h2>Superior Avengers: El equipo de los Vengadores que nadie esperaba… ¿o sí?</h2>
                 <a href="">Leer más</a>
             </div>
             <div class="noticias_div">
-                <img src="../statics/imagenes/Las-Espadas-Mas-Poderosas-de-Marvel noticias.webp" alt="">
+                <img src="{{ url_for('static', filename='imagenes/Las-Espadas-Mas-Poderosas-de-Marvel noticias.webp') }}" alt="">
                 <h2>Las 10 espadas más poderosas del Universo Marvel</h2>
                 <a href="">Leer más</a>
             </div>

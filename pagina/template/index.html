@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" 
      crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="/pagina/statics/css/styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
@@ -20,11 +20,11 @@
         <div class="contenedor contenedor__header">
 
             <div class="logo">
-                <a href="index.html"><img class="logo__imagen" src="../statics/imagenes/logo.png" alt=""></a> 
+                <a href="{{ url_for('main.index') }}"><img class="logo__imagen" src="{{ url_for('static', filename='imagenes/logo.png') }}" alt=""></a> 
             </div> 
            
             <nav class="navbar">
-                <a href="noticias.html">Noticias</a>
+                <a href="{{ url_for('main.noticias') }}">Noticias</a>
                 <a href="ayuda.html">Ayuda</a>
                 <a href="comics.html">Comics</a>
                 <a href="ofertas.html">Ofertas</a>
@@ -55,43 +55,43 @@
             <div class="swiper-wrapper">
 
                 <div class="swiper-slide">
-                   <a href="google.com"><img src="../comics/batman justicia absoluta.jpg" alt=""></a> 
+                   <a href="google.com"><img src="{{ url_for('static', filename='comics/batman justicia absoluta.jpg') }}" alt=""></a> 
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/DEADPOOL VS_ SABRETOOTH.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/DEADPOOL VS_ SABRETOOTH.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/dragon ball super.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/dragon ball super.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/Jujutsu Kaisen Volume 11.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/Jujutsu Kaisen Volume 11.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/linterna verde.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/linterna verde.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/one-piece-201-e6495bf8bce970e92216137704235084-1024-1024-9c522400056af1246e17439560769452-320-0.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/one-piece-201-e6495bf8bce970e92216137704235084-1024-1024-9c522400056af1246e17439560769452-320-0.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/pokemon.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/pokemon.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/spider man 2099.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/spider man 2099.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/xmen.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/xmen.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/DEADPOOL VS_ SABRETOOTH.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/DEADPOOL VS_ SABRETOOTH.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/Jujutsu Kaisen Volume 11.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/Jujutsu Kaisen Volume 11.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics//spider man 2099.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/spider man 2099.jpg') }}" alt="">
                 </div>
                 <div class="swiper-slide">
-                    <img src="../comics/dragon ball super.jpg" alt="">
+                    <img src="{{ url_for('static', filename='comics/dragon ball super.jpg') }}" alt="">
                 </div>
             </div>
 
@@ -132,6 +132,6 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-    <script src="script.js" ></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
