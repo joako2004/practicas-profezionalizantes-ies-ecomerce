@@ -1,43 +1,17 @@
-/* Variables CSS */
-:root {
-    --fuente: "Poppins", sans-serif;
-    --amarillo: #F2B138;
-    --marron: #8C756C;
-    --rojo: #F24130;
-    --blanco: #F2F2F2;
-    --negro: #0D0D0D;
-}
+/* ===== FORMULARIOS ===== */
 
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
-
-html {
-    font-size: 62.5%; /* 1rem = 10px */
-}
-
-body {
-    font-family: var(--fuente);
-    font-size: 1.5rem;
-    line-height: 2;
-}
-
-/* FORMULARIOS */
-.formulario-fondo {
+.formulario-container {
     position: relative;
-    padding: 5rem 2rem;
+    padding: 5rem 0;
     z-index: 1;
     overflow: hidden;
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #F2B138;
 }
 
-.formulario-fondo::before {
+.formulario-container::before {
     content: "";
     position: absolute;
     top: 0; 
@@ -51,47 +25,25 @@ body {
     z-index: -1;
 }
 
-.formulario-container {
-    background-color: #F2B138;
-    padding: 4rem;
-    border-radius: 20px;
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-    width: 100%;
-    max-width: 50rem;
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
-}
-
-.formulario-container::before {
-    content: "";
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
-    border-radius: 50%;
-    z-index: 1;
-}
-
 .formulario-login {
     background-color: var(--blanco);
-    padding: 3rem;
+    padding: 4rem 3rem;
     border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     width: 100%;
+    max-width: 45rem;
     text-align: center;
     position: relative;
     z-index: 2;
-    animation: fadeInUp 0.6s ease-out;
 }
 
 .formulario-titulo {
+    font-family: var(--fuente);
     font-size: 3rem;
     font-weight: 700;
     color: var(--negro);
     margin-bottom: 3rem;
+    text-align: center;
 }
 
 .formulario-grupo {
@@ -101,6 +53,7 @@ body {
 
 .formulario-label {
     display: block;
+    font-family: var(--fuente);
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--negro);
@@ -113,13 +66,14 @@ body {
     border: 2px solid #e1e1e1;
     border-radius: 8px;
     font-size: 1.6rem;
+    font-family: var(--fuente);
     background-color: #fafafa;
     transition: all 0.3s ease;
     outline: none;
 }
 
 .formulario-input:focus {
-    border-color: #F2B138;
+    border-color: var(--amarillo);
     background-color: var(--blanco);
     box-shadow: 0 0 0 3px rgba(242, 177, 56, 0.1);
     transform: translateY(-2px);
@@ -127,11 +81,6 @@ body {
 
 .formulario-input:hover {
     border-color: var(--marron);
-}
-
-.formulario-input::placeholder {
-    color: #9ca3af;
-    font-style: italic;
 }
 
 .formulario-checkbox {
@@ -144,12 +93,14 @@ body {
 .formulario-checkbox input[type="checkbox"] {
     width: 1.8rem;
     height: 1.8rem;
-    accent-color: var(--rojo);
+    accent-color: var(--amarillo);
 }
 
 .formulario-checkbox label {
+    font-family: var(--fuente);
     font-size: 1.4rem;
     color: var(--negro);
+    margin: 0;
 }
 
 .formulario-botones {
@@ -163,10 +114,12 @@ body {
     padding: 1.5rem 3rem;
     border: none;
     border-radius: 2.3rem;
+    font-family: var(--fuente);
     font-size: 1.6rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.3s ease;
+    text-align: center;
     min-width: 14rem;
 }
 
@@ -201,7 +154,8 @@ body {
 }
 
 .formulario-enlaces a {
-    color: var(--negro);
+    color: var(--rojo);
+    font-family: var(--fuente);
     font-size: 1.4rem;
     text-decoration: none;
     font-weight: 500;
@@ -209,11 +163,53 @@ body {
 }
 
 .formulario-enlaces a:hover {
-    color: var(--rojo);
+    color: rgb(191, 29, 29);
     text-decoration: underline;
     transform: scale(1.05);
 }
 
+/* Responsive Design */
+@media (max-width: 768px) {
+    .formulario-login {
+        padding: 3rem 2rem;
+        margin: 2rem 1rem;
+    }
+    
+    .formulario-titulo {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+    
+    .formulario-botones {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .formulario-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .formulario-container {
+        padding: 2rem 0;
+    }
+    
+    .formulario-login {
+        padding: 2rem 1.5rem;
+    }
+    
+    .formulario-titulo {
+        font-size: 2rem;
+    }
+    
+    .formulario-input {
+        padding: 1.2rem 1.5rem;
+        font-size: 1.4rem;
+    }
+}
+
+/* Estados de validación */
 .formulario-input.error {
     border-color: var(--rojo);
     background-color: #fef2f2;
@@ -225,6 +221,7 @@ body {
 }
 
 .formulario-mensaje {
+    font-family: var(--fuente);
     font-size: 1.3rem;
     margin-top: 0.5rem;
     padding: 0.5rem;
@@ -238,6 +235,7 @@ body {
     color: #10b981;
 }
 
+/* Animaciones */
 @keyframes fadeInUp {
     from {
         opacity: 0;
@@ -249,56 +247,17 @@ body {
     }
 }
 
+.formulario-login {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+/* Efectos adicionales */
+.formulario-input::placeholder {
+    color: #9ca3af;
+    font-style: italic;
+}
+
 .formulario-grupo:hover .formulario-label {
-    color: #F2B138;
+    color: var(--amarillo);
     transition: color 0.3s ease;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    .formulario-container {
-        padding: 3rem 2rem;
-        margin: 0 1rem;
-    }
-
-    .formulario-login {
-        padding: 2rem;
-    }
-
-    .formulario-titulo {
-        font-size: 2.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .formulario-botones {
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    .formulario-btn {
-        width: 100%;
-    }
-}
-
-@media (max-width: 480px) {
-    .formulario-fondo {
-        padding: 2rem 1rem;
-    }
-
-    .formulario-container {
-        padding: 2rem 1.5rem;
-    }
-
-    .formulario-login {
-        padding: 1.5rem;
-    }
-
-    .formulario-titulo {
-        font-size: 2rem;
-    }
-
-    .formulario-input {
-        padding: 1.2rem 1.5rem;
-        font-size: 1.4rem;
-    }
 }
