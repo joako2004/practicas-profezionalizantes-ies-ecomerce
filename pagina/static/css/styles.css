@@ -24,7 +24,9 @@
 html {
   font-size: 62.5%; /* 1rem = 10px */
 }
-
+h1, h2, h3 {
+  font-family: var(--fuente);
+}
 body {
   font-family: var(--fuente);
   font-size: 1.5rem;
@@ -36,7 +38,7 @@ body {
 /* Enlaces */
 a {
   text-decoration: none;
-  font-family: "Poppins", sans-serif;
+  font-family: var(--fuente);
   color: inherit;
 }
 
@@ -238,8 +240,7 @@ a {
 ------------------------------------------------------------------*/
 
 .main {
-  padding: 5rem 2rem;
-  max-width: 90rem;
+  padding: 5rem;
   margin: 0 auto;
 }
 
