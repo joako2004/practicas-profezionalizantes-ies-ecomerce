@@ -1,6 +1,18 @@
-from app import create_app
+from flask import Flask
+from routes import main, comics
 
-app = create_app()
+def create_app():
+    app = Flask(
+        __name__,
+        template_folder='templates',
+        static_folder='static'
+    )
+
+    # registrar blueprints
+    app.register_blueprint(main)
+    app.register_blueprint(comics)
+
+    return app
 
 if __name__ == '__main__':
-    app.run(debug=True) 
+    create_app().run(debug=True)

@@ -8,4 +8,8 @@ def index():
 
 @main.route('/noticias')
 def noticias():
-    return render_template('noticias.html') 
+    return render_template('noticias.html')
+
+@main.route('/inicio-sesion')
+def inicio_sesion():
+    return render_template('inicio-sesion.html')
