@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro - Comics Verse</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/registro.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Bangers&family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <a href="/" class="logo">
+            <i class="fas fa-mask"></i> COMICS VERSE
+        </a>
+    </header>
+
+    <main class="main-container">
+        <form class="registro-form" id="registroForm">
+            <h1 class="form-title">¡Únete a Comics Verse!</h1>
+            <p class="form-subtitle">Crea tu cuenta y descubre el mundo de los cómics</p>
+            
+            <div class="message" id="message"></div>
+            
+            <div class="form-group">
+                <label for="nombre">
+                    <i class="fas fa-user"></i> Nombre
+                </label>
+                <input type="text" id="nombre" name="nombre" required 
+                       placeholder="Ingresa tu nombre" maxlength="50">
+            </div>
+
+            <div class="form-group">
+                <label for="apellido">
+                    <i class="fas fa-user-tag"></i> Apellido
+                </label>
+                <input type="text" id="apellido" name="apellido" required 
+                       placeholder="Ingresa tu apellido" maxlength="50">
+            </div>
+
+            <div class="form-group">
+                <label for="email">
+                    <i class="fas fa-envelope"></i> Email
+                </label>
+                <input type="email" id="email" name="email" required 
+                       placeholder="tu@email.com">
+            </div>
+
+            <div class="form-group">
+                <label for="password">
+                    <i class="fas fa-lock"></i> Contraseña
+                </label>
+                <input type="password" id="password" name="password" required 
+                       placeholder="Mínimo 6 caracteres" minlength="6">
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">
+                    <i class="fas fa-lock"></i> Confirmar Contraseña
+                </label>
+                <input type="password" id="confirmPassword" name="confirmPassword" required 
+                       placeholder="Repite tu contraseña" minlength="6">
+            </div>
+
+            <button type="submit" class="btn-registro">
+                <span class="btn-text">Crear Cuenta</span>
+                <div class="loading" id="loading"></div>
+            </button>
+
+            <div class="form-links">
+                <p>¿Ya tienes una cuenta? <a href="/login">Inicia sesión aquí</a></p>
+            </div>
+        </form>
+    </main>
+
+    <script>
+        // Función para mostrar mensajes
+        function showMessage(text, type) {
+            const messageEl = document.getElementById('message');
+            messageEl.textContent = text;
+            messageEl.className = `message ${type}`;
+            messageEl.style.display = 'block';
+            
+            // Ocultar mensaje después de 5 segundos
+            setTimeout(() => {
+                messageEl.style.display = 'none';
+            }, 5000);
+        }
+
+        // Función para mostrar/ocultar loading
+        function toggleLoading(show) {
+            const btnText = document.querySelector('.btn-text');
+            const loading = document.getElementById('loading');
+            const btn = document.querySelector('.btn-registro');
+            
+            if (show) {
+                btnText.style.display = 'none';
+                loading.style.display = 'block';
+                btn.disabled = true;
+            } else {
+                btnText.style.display = 'block';
+                loading.style.display = 'none';
+                btn.disabled = false;
+            }
+        }
+
+        // Validación del formulario
+        document.getElementById('registroForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Validar que las contraseñas coincidan
+            if (data.password !== data.confirmPassword) {
+                showMessage('Las contraseñas no coinciden', 'error');
+                return;
+            }
+            
+            // Validar longitud de contraseña
+            if (data.password.length < 6) {
+                showMessage('La contraseña debe tener al menos 6 caracteres', 'error');
+                return;
+            }
+            
+            // Mostrar loading
+            toggleLoading(true);
+            
+            try {
+                // Simular envío de datos al servidor
+                // En tu implementación real, aquí harías la petición al backend
+                const response = await fetch('/api/registro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        nombre: data.nombre,
+                        apellido: data.apellido,
+                        email: data.email,
+                        password: data.password
+                    })
+                });
+                
+                const result = await response.json();
+                
+                if (response.ok) {
+                    showMessage('¡Cuenta creada exitosamente! Redirigiendo...', 'success');
+                    setTimeout(() => {
+                        window.location.href = '/login';
+                    }, 2000);
+                } else {
+                    showMessage(result.message || 'Error al crear la cuenta', 'error');
+                }
+                
+            } catch (error) {
+                console.error('Error:', error);
+                showMessage('Error de conexión. Inténtalo nuevamente.', 'error');
+            }
+            
+            toggleLoading(false);
+        });
+
+        // Validación en tiempo real
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+            
+            if (confirmPassword && password !== confirmPassword) {
+                this.style.borderColor = 'var(--rojo)';
+            } else if (confirmPassword) {
+                this.style.borderColor = 'var(--verde)';
+            }
+        });
+
+        // Validación de email
+        document.getElementById('email').addEventListener('input', function() {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (this.value && !emailRegex.test(this.value)) {
+                this.style.borderColor = 'var(--rojo)';
+            } else if (this.value) {
+                this.style.borderColor = 'var(--verde)';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -15,6 +15,9 @@ def noticias():
 def inicio_sesion():
     return render_template('inicio-sesion.html')
 
+@main.route('/registro')
+def registro():
+    return render_template('registro.html')
 
 # blueprint “comics”
 comics = Blueprint('comics', __name__, url_prefix='/comics')

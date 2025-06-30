@@ -1,0 +1,261 @@
+/* Variables CSS */
+:root {
+    --fuente: "Bangers", system-ui;
+    --amarillo: #F2B138;
+    --marron: #8C756C;
+    --rojo: #F24130;
+    --blanco: #F2F2F2;
+    --negro: #0D0D0D;
+    --verde: #28a745;
+}
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: var(--fuente);
+    font-size: 1.6rem;
+    line-height: 1.6;
+    background: var(--blanco);
+    color: var(--negro);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header simplificado */
+.header {
+    background-color: var(--amarillo);
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.logo {
+    font-size: 4rem;
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Contenedor principal */
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3rem 2rem;
+    background: linear-gradient(135deg, var(--amarillo) 0%, var(--marron) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.main-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="comic" patternUnits="userSpaceOnUse" width="20" height="20"><circle cx="10" cy="10" r="1" fill="%23ffffff" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23comic)"/></svg>');
+    opacity: 0.3;
+}
+
+/* Formulario de registro */
+.registro-form {
+    background: var(--blanco);
+    padding: 4rem 3rem;
+    border-radius: 2rem;
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.2);
+    width: 100%;
+    max-width: 50rem;
+    position: relative;
+    z-index: 1;
+    border: 0.3rem solid var(--amarillo);
+}
+
+.registro-form::before {
+    content: "";
+    position: absolute;
+    top: -0.5rem;
+    left: -0.5rem;
+    right: -0.5rem;
+    bottom: -0.5rem;
+    background: linear-gradient(45deg, var(--amarillo), var(--rojo), var(--amarillo));
+    border-radius: 2rem;
+    z-index: -1;
+}
+
+.form-title {
+    text-align: center;
+    font-size: 3.5rem;
+    color: var(--rojo);
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-subtitle {
+    text-align: center;
+    font-size: 1.4rem;
+    color: var(--marron);
+    margin-bottom: 3rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Campos del formulario */
+.form-group {
+    margin-bottom: 2.5rem;
+}
+
+.form-group label {
+    display: block;
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: var(--negro);
+    margin-bottom: 0.8rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1.5rem;
+    border: 0.2rem solid var(--amarillo);
+    border-radius: 1rem;
+    font-size: 1.6rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    background: var(--blanco);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--rojo);
+    box-shadow: 0 0 0 0.3rem rgba(242, 65, 48, 0.2);
+    transform: translateY(-0.2rem);
+}
+
+.form-group input:valid {
+    border-color: var(--verde);
+}
+
+/* Botón de registro */
+.btn-registro {
+    width: 100%;
+    padding: 1.8rem;
+    background: linear-gradient(45deg, var(--rojo), #ff6b5a);
+    color: var(--blanco);
+    border: none;
+    border-radius: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    box-shadow: 0 0.5rem 1.5rem rgba(242, 65, 48, 0.3);
+}
+
+.btn-registro:hover {
+    background: linear-gradient(45deg, #d63384, var(--rojo));
+    transform: translateY(-0.3rem);
+    box-shadow: 0 0.8rem 2rem rgba(242, 65, 48, 0.4);
+}
+
+.btn-registro:active {
+    transform: translateY(0);
+}
+
+/* Enlaces */
+.form-links {
+    text-align: center;
+    margin-top: 2.5rem;
+}
+
+.form-links a {
+    color: var(--rojo);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.form-links a:hover {
+    color: var(--marron);
+    text-decoration: underline;
+}
+
+/* Mensajes de feedback */
+.message {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+}
+
+.message.success {
+    background: rgba(40, 167, 69, 0.1);
+    color: var(--verde);
+    border: 0.2rem solid var(--verde);
+}
+
+.message.error {
+    background: rgba(242, 65, 48, 0.1);
+    color: var(--rojo);
+    border: 0.2rem solid var(--rojo);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .main-container {
+        padding: 2rem 1rem;
+    }
+    
+    .registro-form {
+        padding: 3rem 2rem;
+    }
+    
+    .form-title {
+        font-size: 2.8rem;
+    }
+}
+
+/* Animaciones */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.registro-form {
+    animation: slideIn 0.6s ease-out;
+}
+
+/* Loading spinner */
+.loading {
+    display: none;
+    width: 2rem;
+    height: 2rem;
+    border: 0.3rem solid var(--blanco);
+    border-top: 0.3rem solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
