@@ -112,6 +112,18 @@ a {
   color: var(--rojo);
 }
 
+.navbar__submenu .submenu {
+  position: static;
+  box-shadow: none;
+  border-radius: 0;
+  background-color: transparent;
+  display: none;
+}
+
+.navbar__submenu:hover .submenu {
+  display: block;
+}
+
 .logo {
   display: flex;
   align-items: center;
@@ -266,7 +278,7 @@ a {
   padding: 5rem 0;
   z-index: 1;
   overflow: hidden;
-  background-color: var(--amarillo);
+  /* background-color: var(--amarillo); */
 }
 
 .footer::before {
@@ -294,7 +306,20 @@ a {
 
 .footer__redesSociales a {
   margin: 0 1rem;
-  font-size: 3rem;
+  font-size: 4rem;
+  transition: color 0.3s ease;
+}
+
+.footer__redesSociales a:nth-child(1) {
+  color: #E1306C;
+}
+
+.footer__redesSociales a:nth-child(2) {
+  color: #1877F2;
+}
+
+.footer__redesSociales a:nth-child(3) {
+  color: #1DA1F2;
 }
 
 .footer__derechos {
@@ -304,6 +329,9 @@ a {
   font-size: 1.4rem;
 }
 
+.footer__derechos a{
+  color: var(--rojo)
+}
 /*------------------------------------------------------------------
   Media Queries
 ------------------------------------------------------------------*/
@@ -323,6 +351,43 @@ a {
   .navbar a {
     padding: 0.5rem 1rem;
   }
+  
+/* Ajustes para el submenú */
+.navbar__submenu {
+  position: relative;
+  display: inline-block;
+}
+
+.navbar__submenu .submenu {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: var(--amarillo);
+  border-radius: 0 0 0.5rem 0.5rem;
+  min-width: 15rem;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.2);
+  flex-direction: column; /* para que se apilen en vertical */
+  z-index: 1000;
+}
+
+.navbar__submenu:hover .submenu {
+  display: flex;
+}
+
+.navbar__submenu .submenu a {
+  display: block;
+  padding: 1rem;
+  font-size: 1.6rem;
+  color: var(--blanco);
+  text-align: left;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.navbar__submenu .submenu a:hover {
+  background-color: var(--rojo);
+}
 
   .main {
     padding: 5rem 15rem;

@@ -26,14 +26,23 @@
             <nav class="navbar">
                 <a href="{{ url_for('main.noticias') }}">Noticias</a>
                 <a href="ayuda.html">Ayuda</a>
-                <a href="comics.html">Comics</a>
+
+                <div class="navbar__submenu">
+                    <a href="comics.html">Comics</a>
+                    <div class="submenu">
+                        <a href="manga.html">Manga</a>
+                        <a href="accion.html">Acción</a>
+                        <a href="aventura.html">Aventura</a>
+                        <a href="humor.html">Humor</a>
+                    </div>
+                </div>                
                 <a href="ofertas.html">Ofertas</a>
                 <a href="vender.html">Vender</a>
             </nav>
             
             <div class="login">
                 <button class="login__acceder">Acceder</button>
-                <button class="login__registrarte">Registrate</button>
+                <a href="/pagina/templates/registro.html" class="login__registrarte">Registrate</a>
             </div>
 
             <div class="buscador">
